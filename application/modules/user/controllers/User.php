@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends Parent_Controller {
  
   var $nama_tabel = 'm_user';
-  var $daftar_field = array('id','username','password','user_insert','date_insert','user_update','date_update');
+  var $daftar_field = array('id','username','password','level');
   var $primary_key = 'id';
   
  	public function __construct(){
@@ -55,13 +55,13 @@ class User extends Parent_Controller {
 	}
  
 	public function simpan_data_user(){
-		$data_form = $this->m_user->array_from_post(array('id','username','password'));
+		$data_form = $this->m_user->array_from_post(array('id','username','password','level'));
 		$id = $data_form['id'];	 
 	 
 		//apabila user id kosong maka input data baru
 		if($id == '' || empty($id)){ 
 				 
-				return $this->db->query("insert into m_user set username = '".$data_form['username']."', password = '".base64_encode($data_form['password'])."' ");
+				return $this->db->query("insert into m_user set username = '".$data_form['username']."', password = '".base64_encode($data_form['password'])."' ,level = '".$data_form['level']."' ");
 		  
 
 		//apabila user id tersedia maka update data
@@ -69,11 +69,11 @@ class User extends Parent_Controller {
 
 			if($data_form['password'] == '' || empty($data_form['password'])){
 				 
-				return $this->db->query("update m_user set username = '".$data_form['username']."'  ");
+				return $this->db->query("update m_user set username = '".$data_form['username']."',level = '".$data_form['level']."'  where id = '".$id."' ");
 		 
 			}else{
 				 
-				return $this->db->query("update m_user set username = '".$data_form['username']."',password = '".base64_encode($data_form['password'])."'  where id = '".$id."' ");
+				return $this->db->query("update m_user set username = '".$data_form['username']."',password = '".base64_encode($data_form['password'])."',level = '".$data_form['level']."'  where id = '".$id."' ");
 			}
 
 		}

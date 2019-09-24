@@ -25,6 +25,7 @@
                                         <tr>
                                             <th style="width:5%;">No</th>
                                             <th style="width:5%;">Username</th>  
+                                            <th style="width:5%;">Level</th>  
                                             <th style="width:10%;">Opsi</th> 
                                         </tr>
                                     </thead> 
@@ -63,6 +64,17 @@
                                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" /> 
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                    
+                                    <label> Type  </label>
+                                    <br>
+                                    <input type="text" name="level" id="level">
+
+                                    <button type="button" id="userbtn" class="btn btn-default waves-effect "> User </button>
+
+                                    <button type="button" id="adminbtn" class="btn btn-default waves-effect "> Admin </button>
+                                
+                                     </div>
                                  
 
                                    <button type="button" onclick="Simpan_Data();" class="btn btn-success waves-effect"> <i class="material-icons">save</i> Simpan</button>
@@ -78,7 +90,21 @@
  
    <script type="text/javascript">
     
- 
+    //kantor
+     $("#userbtn").on("click",function(){
+        $("#level").val('2');
+          $(this).attr('class','btn btn-primary');
+        $("#adminbtn").attr('class','btn btn-default');
+
+    });
+
+    $("#adminbtn").on("click",function(){
+        $("#level").val('1');
+         $(this).attr('class','btn btn-primary');
+        $("#userbtn").attr('class','btn btn-default');
+
+         
+    });
        
      function Ubah_Data(id){
         $("#defaultModalLabel").html("Form Ubah Data");
@@ -92,20 +118,24 @@
                  $("#defaultModal").modal('show'); 
                  $("#id").val(result.id);
                  $("#username").val(result.username); 
-                 $("#id_admin_pppu").val(result.id_admin_pppu);
-                 $("#nama_adminpppu").val(result.nama); 
+                 $("#level").val(result.level);                   
+                 if(result.level == '1'){
+                    $("#adminbtn").attr('class','btn btn-primary');
+                    $("#userbtn").attr('class','btn btn-default');
+                 }else{
+                    $("#adminbtn").attr('class','btn btn-default');
+                    $("#userbtn").attr('class','btn btn-primary');
+                 }
              }
          });
      }
  
      function Bersihkan_Form(){
         $(':input').val(''); 
+        $("#userbtn").attr('class','btn btn-default');
+        $("#adminbtn").attr('class','btn btn-default');
      }
-
-     function CariAdminPPPU(){
-        $("#ModalCariAdminPPPU").modal({backdrop: 'static', keyboard: false,show:true});
-     }
-
+ 
      
 
      function Hapus_Data(id){
@@ -118,7 +148,7 @@
             dataType: "JSON",
             success: function(data)
             {
-               
+                Bersihkan_Form();
                $('#example').DataTable().ajax.reload(); 
                
                 $.notify("Data berhasil dihapus!", {
@@ -151,13 +181,10 @@
   
     function Simpan_Data(){
         //setting semua data dalam form dijadikan 1 variabel 
-         var formData = new FormData($('#user_form')[0]); 
+         var formData = new FormData($('#user_form')[0]);  
 
-          
          //validasi form sebelum submit ke controller
-         var username = $("#username").val();
- 
-        
+         var username = $("#username").val(); 
           
          if(username == ''){
             alert("Username Belum anda masukkan!");
@@ -178,7 +205,7 @@
                  $("#defaultModal").modal('hide');
                  $('#example').DataTable().ajax.reload(); 
                  $('#user_form')[0].reset();
-                 
+                 Bersihkan_Form();
                  $.notify("Data berhasil disimpan!", {
                     animate: {
                         enter: 'animated fadeInRight',
@@ -208,6 +235,7 @@
         $("#addmodal").on("click",function(){
             $("#defaultModal").modal({backdrop: 'static', keyboard: false,show:true});
             $("#method").val('Add');
+            Bersihkan_Form();
             $("#defaultModalLabel").html("Form Tambah Data");
         });
         

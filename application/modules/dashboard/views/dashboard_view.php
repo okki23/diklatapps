@@ -22,7 +22,7 @@ $(document).ready(function(){
 			enableRemoveControls: true
 		},
 		swfPath: "player_assets/dist/jplayer",
-		supplied: "webmv, ogv, m4v, oga, mp3, mp4",
+		supplied: "webmv, ogv, m4v, oga, mp3, mp4, avi, mkv, flv, webmm",
 		useStateClassSkin: true,
 		autoBlur: false,
 		smoothPlayBar: true,

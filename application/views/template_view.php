@@ -43,6 +43,9 @@
 
     <!-- Select Plugin Js -->
     <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.form.js"></script>
+    
+    
 
     <!-- Slimscroll Plugin Js -->
     <script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
@@ -147,6 +150,10 @@
                             <span>Home  </span>
                         </a>
                     </li> 
+                    <?php
+                    if($this->session->userdata('level') == 1){
+                    ?>
+
                     <li class="header">Master</li> 
                       <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -154,22 +161,34 @@
                             <span>Master</span>
                         </a>
                         <ul class="ml-menu">
-                    <li>
-                        <a href="<?php echo base_url('media'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Media</span>
-                        </a>
-                    </li> 
+                            <li>
+                                <a href="<?php echo base_url('media'); ?>">
+                                <i class="material-icons">dns</i>
+                                    <span>Media</span>
+                                </a>
+                            </li> 
                      
-                    <li>
-                        <a href="<?php echo base_url('user'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>User</span>
-                        </a>
-                    </li>
+                            <li>
+                                <a href="<?php echo base_url('user'); ?>">
+                                <i class="material-icons">dns</i>
+                                    <span>User</span>
+                                </a>
+                            </li>
                     
-                        </ul>
+                         </ul>
                     </li>
+                    <?php
+                    }else{
+                    ?>
+
+                    <li class="header">Media Diklat</li> 
+                    
+                    </li>
+
+                    <?php    
+                    }
+                    ?>
+                  
                     
                      
                     
