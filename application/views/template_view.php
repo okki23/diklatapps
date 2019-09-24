@@ -27,10 +27,7 @@
 
     <!-- Custom Css -->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
- 
-   <!--  <link href="<?php echo base_url(); ?>assets/css/orgchart.css" rel="stylesheet"> -->
-    <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
-
+  
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url(); ?>assets/css/themes/all-themes.css" rel="stylesheet" />
 	
@@ -66,14 +63,10 @@
     <script src="<?php echo base_url(); ?>js/buttons.print.min.js"></script>
     <script src="<?php echo base_url(); ?>js/buttons.colVis.min.js"></script>
     <script src="<?php echo base_url(); ?>js/filterDropDown.js"></script>
-
  
-
-    
     <script src="<?php echo base_url(); ?>assets/js/dataTables.rowsGroup.js"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script> 
-
-  
+ 
 
     <!-- Custom Js -->
     <script src="<?php echo base_url(); ?>assets/js/admin.js"></script>
@@ -162,65 +155,12 @@
                         </a>
                         <ul class="ml-menu">
                     <li>
-                        <a href="<?php echo base_url('direktur'); ?>">
+                        <a href="<?php echo base_url('media'); ?>">
                            <i class="material-icons">dns</i>
-                            <span>Direktur</span>
+                            <span>Media</span>
                         </a>
                     </li> 
-                    <li>
-                        <a href="<?php echo base_url('direktorat'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Direktorat</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('divisi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Divisi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('departemen'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Departemen</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('seksi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Seksi</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('kelas_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kelas Jabatan</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url('kelompok_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kelompok Jabatan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('lokasi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Lokasi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('karyawan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Karyawan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('formasi_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Formasi Jabatan</span>
-                        </a>
-                    </li>
+                     
                     <li>
                         <a href="<?php echo base_url('user'); ?>">
                            <i class="material-icons">dns</i>
@@ -242,7 +182,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2018 <a href="javascript:void(0);"> PT.Jasamarga (Persero) </a>
+                    &copy; 2019 <a href="javascript:void(0);"> Kemensos </a>
                 </div>
             </div>
             <!-- #Footer -->
